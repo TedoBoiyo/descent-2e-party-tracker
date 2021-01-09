@@ -5,7 +5,7 @@ import PlayerSelection from './PlayerSelection/PlayerSelection';
 import PlayerCount from './PlayerCount/PlayerCount';
 import PageNavigation from './PageNavigation/PageNavigation';
 
-const SelectPlayers = ({players, setPlayers}) => {
+const SelectPlayers = ({players, setPlayers, gameState, setGameState}) => {
 
     const mockData = {
         playerRole: [
@@ -34,7 +34,7 @@ const SelectPlayers = ({players, setPlayers}) => {
             {players.map(player => 
                 <PlayerSelection key={player.playerId} player={player} mockData={mockData} />
             )}
-            {players.length > 0 ? <PageNavigation players={players} /> : null}
+            {players.length > 0 ? <PageNavigation players={players} gameState={gameState} setGameState={setGameState} /> : null}
         </div>
     );
 }

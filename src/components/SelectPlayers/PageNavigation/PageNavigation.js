@@ -1,12 +1,16 @@
 import React from 'react';
 
-const PageNavigation = ({players}) => {
+const PageNavigation = ({players, gameState, setGameState}) => {
+
+    const submitPartyHandler = (e) => {
+        
+    }
 
     return (
         <div>
             <hr />
             
-            <button>Submit Player{players.length > 1 ? 's' : ''}</button>
+            <button onClick={submitPartyHandler}>Submit Player{players.length > 1 ? 's' : ''}</button>
         </div>
     );
 }

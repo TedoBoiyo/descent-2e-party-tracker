@@ -10,13 +10,17 @@ import './App.css';
 function App() {
 
   const [players, setPlayers] = useState([]);
+  const [gameState, setGameState] = useState('SelectParty');
 
   return (
     <div className="App">
       <h1>Descent 2E Party Tracker</h1>
 
-      <SelectPlayers players={players} 
-                   setPlayers={setPlayers} />
+      {gameState='SelectParty' ? <SelectPlayers players={players} 
+                     setPlayers={setPlayers}
+                     gameState={gameState}
+                     setGameState={setGameState} /> : ''}
+      
 
       {/* Character Tracker  */}
       
