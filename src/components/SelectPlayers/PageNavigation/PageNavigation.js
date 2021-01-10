@@ -3,7 +3,7 @@ import React from 'react';
 const PageNavigation = ({players, gameState, setGameState}) => {
 
     const submitPartyHandler = (e) => {
-        
+        setGameState('TrackParty')
     }
 
     return (

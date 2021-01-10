@@ -12,7 +12,7 @@ const PlayerSelection = ({player, mockData}) => {
         <div className='row'>
             <div className='col-12'>
                 <div className='playerBox'>
-                    <h4>Player {player.playerId}</h4>
+                    <h5>Player {player.playerId}</h5>
                     <HeroSelection selectionType='Role' selectionList={mockData.playerRole} />
                     <HeroSelection selectionType='Hero' selectionList={mockData.playerHero} />
                     <HeroSelection selectionType='Class' selectionList={mockData.playerClass} />
