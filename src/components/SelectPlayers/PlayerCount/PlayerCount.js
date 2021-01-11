@@ -32,8 +32,8 @@ const PlayerCount = ({players, setPlayers}) => {
 
     return (
         <div>
-            <h4 className="selectPlayerCount">How many players are playing?</h4>
-            <select name="selectPlayers" onChange={selectPlayerCountHandler}>
+            <h4 className="select-player-count">How many players are playing?</h4>
+            <select name="selectPlayers" onChange={selectPlayerCountHandler} value={players.length}>
                 <option value={0}>0</option>
                 {playerCount.map(count => (
                     <option value={count}>{count}</option>

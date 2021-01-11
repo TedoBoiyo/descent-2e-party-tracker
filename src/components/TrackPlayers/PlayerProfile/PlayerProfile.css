@@ -1,0 +1,10 @@
+.hero-ability, .heroic-feat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50%;
+}
+
+.hero-ability {
+    border-bottom: 1px solid black;
+}

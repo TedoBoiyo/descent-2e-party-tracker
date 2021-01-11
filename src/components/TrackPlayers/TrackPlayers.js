@@ -1,9 +1,8 @@
 import React from 'react';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
+
 
 // Components
-
+import PlayerProfile from './PlayerProfile/PlayerProfile';
 
 const TrackPlayers = ({players, gameState, setGameState}) => {
     const editPartyHandler = (e) => {
@@ -12,17 +11,7 @@ const TrackPlayers = ({players, gameState, setGameState}) => {
 
     return (
         <div className="">
-            <Tabs defaultActiveKey="Player 1">
-                <Tab eventKey="Player 1" title="Player 1">
-                    <div>test</div>
-                </Tab>
-                <Tab eventKey="Player 2" title="Player 2">
-                    <div>test2</div>
-                </Tab>
-                <Tab eventKey="Player 3" title="Player 3">
-                    <div>test3</div>
-                </Tab>
-            </Tabs>
+            <PlayerProfile players={players} />
             <hr />
             <button>Roll Dices</button>
             <button onClick={editPartyHandler}>Edit Party</button>
