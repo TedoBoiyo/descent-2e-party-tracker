@@ -4,9 +4,7 @@ import React from 'react';
 import './PlayerCount.css';
 
 const PlayerCount = ({players, setPlayers}) => {
-
-    const playerCount = [1,2,3,4];
-
+    
     // Events
     const selectPlayerCountHandler = (e) => {
         let selectedPlayerCount = e.target.value;
@@ -34,9 +32,8 @@ const PlayerCount = ({players, setPlayers}) => {
         <div>
             <h4 className="select-player-count">How many players are playing?</h4>
             <select name="selectPlayers" onChange={selectPlayerCountHandler} value={players.length}>
-                <option value={0}>0</option>
-                {playerCount.map(count => (
-                    <option value={count}>{count}</option>
+                {[...Array(5)].map((el, index) => (
+                    <option value={index}>{index}</option>
                 ))};
             </select>
 
