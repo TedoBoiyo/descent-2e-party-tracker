@@ -1,7 +1,6 @@
 import React from 'react';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-import Form from 'react-bootstrap/Form';
 
 // Components
 import HeroProfile from './HeroProfile/HeroProfile';

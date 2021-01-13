@@ -6,7 +6,7 @@ const HeroSelection = ({selectionType, selectionList}) => {
         <select value={''}>
             <option value="none">Select {selectionType}</option>
             {selectionList.map(selection => (
-                <option value={selection}>{selection}</option>
+                <option value={selection.name}>{selection.name}</option>
             ))};
         </select>
     );
