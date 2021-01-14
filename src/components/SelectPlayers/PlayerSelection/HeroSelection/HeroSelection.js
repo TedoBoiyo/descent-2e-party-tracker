@@ -1,12 +1,26 @@
 import React from 'react';
 
-const HeroSelection = ({selectionType, selectionList}) => {
+// Functions
+import {getHero} from '../../../../content/heroes';
+
+const HeroSelection = ({player, availableHeroes, setAvailableHeroes, players, setPlayers}) => {
+    
+    const selectHeroHandler = (e) => {
+        setPlayers(players.map((el) => {
+            if (el.playerId === player.playerId) {
+                return {
+                    ...el, selectedHero: getHero(e.target.value)
+                }
+            }
+            return el;
+        }))
+    }
 
     return (
-        <select value={''}>
-            <option value="none">Select {selectionType}</option>
-            {selectionList.map(selection => (
-                <option value={selection.name}>{selection.name}</option>
+        <select value={player.selectedHero.name} onChange={selectHeroHandler}> 
+            <option value="none">Select Hero</option>
+            {availableHeroes.map(hero => (
+                <option value={hero.name}>{hero.name}</option>
             ))};
         </select>
     );

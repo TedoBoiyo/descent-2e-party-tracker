@@ -1,3 +1,9 @@
+export const getHero = (heroPoints) => {
+  return heroes.find(hero => {
+    return hero.name === heroPoints;
+  });
+}
+
 export const heroes = [
       {
         "name": "Ashrian",

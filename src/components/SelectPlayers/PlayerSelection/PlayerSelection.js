@@ -7,10 +7,10 @@ import HeroSelection from './HeroSelection/HeroSelection';
 import './PlayerSelection.css';
 
 // Import data sets
-import {roles} from '../../../content/roles';
+// import {roles} from '../../../content/roles';
 import {heroes} from '../../../content/heroes';
 
-const PlayerSelection = ({player, mockData}) => {
+const PlayerSelection = ({player, players, setPlayers}) => {
     heroes.sort(function(a, b) {
         if(a.name > b.name) {
             return 1;
@@ -28,8 +28,12 @@ const PlayerSelection = ({player, mockData}) => {
             <div className='col-12'>
                 <div className='player-box'>
                     <h5>Player {player.playerId}</h5>
-                    <HeroSelection selectionType='Role' selectionList={roles} />
-                    <HeroSelection selectionType='Hero' selectionList={availableHeroes} />
+                    {/* <HeroSelection selectionType='Role' selectionList={roles} /> */}
+                    <HeroSelection player={player} 
+                                availableHeroes={availableHeroes} 
+                                setAvailableHeroes={setAvailableHeroes}
+                                players={players}
+                                setPlayers={setPlayers} />
                     {/* <HeroSelection selectionType='Class' selectionList={mockData.playerClass} /> */}
                 </div>
             </div>
