@@ -35,17 +35,23 @@ const PlayerSelection = ({player, players, setPlayers}) => {
                     {player.selectedRole !== 'none'
                         ? <ClassSelection player={player}
                                         players={players}
-                                        setPlayers={setPlayers} />
+                                        setPlayers={setPlayers}
+                                        playerError={playerError}
+                                        setPlayerError={setPlayerError} />
                         : ''}
                     <br />
-                    {playerError.some(error => error.errorType === 'Hero') 
-                        ? <p className="text-danger">
-                            <FontAwesomeIcon icon={faExclamationCircle} /> Hero has already been selected by another player!
-                        </p> : ''}
-                    {/* {playerError.some(error => error.errorType === 'Hero') 
-                        ? <p className="text-danger">
-                            <FontAwesomeIcon icon={faExclamationCircle} /> Hero has already been selected by another player!
-                        </p> : ''} */}
+                    
+                    <div className="alert-danger">
+                        {playerError.some(error => error.errorType === 'Hero') 
+                            ? <p className="text-danger">
+                                <FontAwesomeIcon icon={faExclamationCircle} /> Hero has already been selected by another player!
+                            </p> : ''}
+                        {playerError.some(error => error.errorType === 'Class') 
+                            ? <p className="text-danger">
+                                <FontAwesomeIcon icon={faExclamationCircle} /> Class has already been selected by another player!
+                            </p> : ''}
+                    </div>
+                    
                     {player.selectedHero.name !== 'none' 
                         ? <img className="hero-card" src={process.env.PUBLIC_URL + player.selectedHero.image} alt='Hero Card' /> : ''}
                 </div>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 // CSS
 import './HeroSelection.css';
@@ -12,14 +12,13 @@ const HeroSelection = ({player, players, setPlayers, playerError, setPlayerError
         let updatedPlayerError = [...playerError];
         
         if (filterHeroes.includes(e.target.value)) {
-            // if (playerError.some(error => error.errorType === 'Hero')) {
+            if (!playerError.some(error => error.errorType === 'Hero')) {
                 updatedPlayerError.push({
                     errorId: playerError.length,
                     errorType: 'Hero'
                 })
-                setPlayerError(updatedPlayerError)
-                
-            // }
+                setPlayerError(updatedPlayerError);
+            }
         } else {
             setPlayers(players.map((el) => {
                 if (el.playerId === player.playerId) {
@@ -35,7 +34,6 @@ const HeroSelection = ({player, players, setPlayers, playerError, setPlayerError
     }
 
     let heroList = getHeroList(player.selectedRole);
-
     heroList.sort();
 
     return (
