@@ -15,7 +15,9 @@ const PlayerCount = ({players, setPlayers}) => {
                 for (let i = activePlayers.length + 1; i <= selectedPlayerCount; i++) {
                     activePlayers.push({
                         playerId: i,
-                        selectedHero: {name: 'none'}
+                        selectedRole: 'none',
+                        selectedHero: {name: 'none'},
+                        selectedClass: {name: 'none', skills: {}}
                     });
                 }
             } else if (selectedPlayerCount < activePlayers.length) {

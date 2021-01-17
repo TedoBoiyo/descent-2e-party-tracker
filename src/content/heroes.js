@@ -1,10 +1,16 @@
-export const getHero = (heroPoints) => {
+export const getHeroList = (role) => {
+  let result = heroes.filter(hero => hero.archetype === role);
+  result = result.map(hero => hero.name)
+  return result;
+};
+
+export const getHero = (heroName) => {
   return heroes.find(hero => {
-    return hero.name === heroPoints;
+    return hero.name === heroName;
   });
 }
 
-export const heroes = [
+const heroes = [
       {
         "name": "Ashrian",
         "points": 0,

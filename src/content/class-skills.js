@@ -1,4 +1,14 @@
-[
+export const getClassList = (role) => {
+  let result = classSkills.filter(skill => skill.archetype === role)
+  result = result.map(skill => skill.class);
+  return [...new Set(result)];
+};
+
+export const getClassSkills = (className) => {
+  return classSkills.filter(skill => skill.class !== className);
+};
+
+const classSkills = [
   {
     "name": "Rage",
     "points": 0,

@@ -4,3 +4,7 @@ div.player-box {
     margin: 5px;
     border: 1px solid black;
 }
+
+.hero-card {
+    margin-top: 10px;
+}
