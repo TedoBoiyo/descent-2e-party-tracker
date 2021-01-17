@@ -12,11 +12,14 @@ const HeroSelection = ({player, players, setPlayers, playerError, setPlayerError
         let updatedPlayerError = [...playerError];
         
         if (filterHeroes.includes(e.target.value)) {
-            updatedPlayerError.push({
-                errorId: playerError.length,
-                errorType: 'Hero'
-            })
-            setPlayerError(updatedPlayerError)
+            // if (playerError.some(error => error.errorType === 'Hero')) {
+                updatedPlayerError.push({
+                    errorId: playerError.length,
+                    errorType: 'Hero'
+                })
+                setPlayerError(updatedPlayerError)
+                
+            // }
         } else {
             setPlayers(players.map((el) => {
                 if (el.playerId === player.playerId) {
