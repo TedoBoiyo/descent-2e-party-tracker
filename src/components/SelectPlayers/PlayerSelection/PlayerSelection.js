@@ -6,6 +6,7 @@ import HeroSelection from './HeroSelection/HeroSelection';
 import ClassSelection from './ClassSelection/ClassSelection';
 import TabContainer from 'react-bootstrap/esm/TabContainer';
 import Nav from 'react-bootstrap/esm/Nav';
+import Modal from 'react-bootstrap/esm/Modal';
 
 // Import style sheets
 import './PlayerSelection.css';
@@ -17,6 +18,14 @@ import {faExclamationCircle} from '@fortawesome/free-solid-svg-icons';
 const PlayerSelection = ({player, players, setPlayers}) => {
 
     const [playerError, setPlayerError] = useState([]);
+    const [showSkillModal, setShowSkillModal] = useState(false);
+    const [classSkillImage, setClassSkillImage] = useState('');
+
+    const showModalHandler = (image) => {
+        setClassSkillImage(image);
+        setShowSkillModal(true);
+        console.log(image)
+    }
 
     return (
         <div className='row'>
@@ -54,21 +63,25 @@ const PlayerSelection = ({player, players, setPlayers}) => {
                     </div>
                     
                     {player.selectedHero.name !== 'none' || player.selectedClass.name !== 'none' 
-                        ? <div style={{height: '490px'}}>
+                        ? <div className="player-selection">
                             {player.selectedHero.name !== 'none' 
-                                ? <div style={{display: 'inline-block'}}><img className="hero-card" src={process.env.PUBLIC_URL + player.selectedHero.image} alt='Hero Card' /></div> : ''}
+                                ? <img className="hero-card" src={process.env.PUBLIC_URL + player.selectedHero.image} alt='Hero Card' /> : ''}
                             {player.selectedClass.name !== 'none'
                                 ? <div className="class-skills">
                                     <h5>Class Skills</h5>
                                     <TabContainer>
                                         <Nav variant="pills" className="flex-column">
                                             {player.selectedClass.skills.map(skill => (
-                                                <Nav.Item>
-                                                    <Nav.Link>{skill.name}</Nav.Link>
+                                                <Nav.Item onClick={() => showModalHandler(skill.image)}>
+                                                    <Nav.Link eventKey={skill.points}>{skill.name}</Nav.Link>
                                                 </Nav.Item>
                                             ))}
                                         </Nav>
-                                    </TabContainer></div> : ''}
+                                    </TabContainer>
+                                    {classSkillImage ? <Modal size="sm" show={showSkillModal} onHide={() => setShowSkillModal(false)} centered>
+                                        <img className="skill-card" src={process.env.PUBLIC_URL + classSkillImage} alt='Skill Card' />
+                                    </Modal> : ''}
+                                </div> : ''}
                         </div> : ''}
                 </div>
             </div>

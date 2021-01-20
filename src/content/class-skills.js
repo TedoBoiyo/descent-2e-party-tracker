@@ -5,7 +5,7 @@ export const getClassList = (role) => {
 };
 
 export const getClassSkills = (className) => {
-  return classSkills.filter(skill => skill.class !== className);
+  return classSkills.filter(skill => skill.class === className);
 };
 
 const classSkills = [
