@@ -8,3 +8,10 @@ div.player-box {
 .hero-card {
     margin-top: 10px;
 }
+
+.class-skills {
+    display: inline-block;
+    padding: 10px;
+    vertical-align: top;
+    overflow: scroll;
+}

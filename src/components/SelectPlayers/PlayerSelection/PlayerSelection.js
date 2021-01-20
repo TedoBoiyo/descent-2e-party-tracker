@@ -4,7 +4,8 @@ import React, {useState} from 'react';
 import RoleSelection from './RoleSelection/RoleSelection';
 import HeroSelection from './HeroSelection/HeroSelection';
 import ClassSelection from './ClassSelection/ClassSelection';
-import Form from 'react-bootstrap/Form';
+import TabContainer from 'react-bootstrap/esm/TabContainer';
+import Nav from 'react-bootstrap/esm/Nav';
 
 // Import style sheets
 import './PlayerSelection.css';
@@ -55,18 +56,19 @@ const PlayerSelection = ({player, players, setPlayers}) => {
                     {player.selectedHero.name !== 'none' || player.selectedClass.name !== 'none' 
                         ? <div style={{height: '490px'}}>
                             {player.selectedHero.name !== 'none' 
-                                ? <img className="hero-card" src={process.env.PUBLIC_URL + player.selectedHero.image} alt='Hero Card' /> : ''}
+                                ? <div style={{display: 'inline-block'}}><img className="hero-card" src={process.env.PUBLIC_URL + player.selectedHero.image} alt='Hero Card' /></div> : ''}
                             {player.selectedClass.name !== 'none'
-                                ? <div><h5>Class Skills</h5>
-                                <Form>
-                                    <Form.Group>
-                                        <Form.Check type="checkbox" label="Show selected skills" />
-                                        <hr />
-                                        <Form.Check type="checkbox" label="Show selected skills" />
-                                        <Form.Check type="checkbox" label="Show selected skills" />
-                                        <Form.Check type="checkbox" label="Show selected skills" />
-                                    </Form.Group>
-                                </Form></div> : ''}
+                                ? <div className="class-skills">
+                                    <h5>Class Skills</h5>
+                                    <TabContainer>
+                                        <Nav variant="pills" className="flex-column">
+                                            {player.selectedClass.skills.map(skill => (
+                                                <Nav.Item>
+                                                    <Nav.Link>{skill.name}</Nav.Link>
+                                                </Nav.Item>
+                                            ))}
+                                        </Nav>
+                                    </TabContainer></div> : ''}
                         </div> : ''}
                 </div>
             </div>
