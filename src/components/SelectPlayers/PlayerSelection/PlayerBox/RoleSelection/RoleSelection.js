@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Data Set
-import {roles} from '../../../../content/roles';
+import {roles} from '../../../../../content/roles';
 
 const RoleSelection = ({player, players, setPlayers, setPlayerError}) => {
     

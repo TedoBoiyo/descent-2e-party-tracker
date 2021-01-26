@@ -4,7 +4,7 @@ import React from 'react';
 import './HeroSelection.css';
 
 // Functions
-import {getHeroList, getHero} from '../../../../content/heroes';
+import {getHeroList, getHero} from '../../../../../content/heroes';
 
 const HeroSelection = ({player, players, setPlayers, playerError, setPlayerError}) => {
     const selectHeroHandler = (e) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Functions
-import {getClassList, getClassSkills} from '../../../../content/class-skills';
+import {getClassList, getClassSkills} from '../../../../../content/class-skills';
 
 const ClassSelection = ({player, players, setPlayers, playerError, setPlayerError}) => {
     

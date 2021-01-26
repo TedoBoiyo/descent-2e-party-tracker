@@ -1,0 +1,13 @@
+.player-selection {
+    display: flex;
+    height: 490px;
+}
+
+.hero-card {
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+
+
+

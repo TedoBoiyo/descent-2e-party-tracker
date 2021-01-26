@@ -13,7 +13,6 @@ const TrackPlayers = ({players, gameState, setGameState}) => {
         <div className="">
             <PlayerProfile players={players} />
             <hr />
-            <button>Roll Dices</button>
             <button onClick={editPartyHandler}>Edit Party</button>
         </div>
     );
