@@ -5,7 +5,7 @@ import React from 'react';
 // Import style sheets
 import '../HeroProfile.css';
 
-const ExternalStats = ({}) => {
+const ExternalStats = () => {
 
     return (
         [...Array(4)].map((el, index) => (

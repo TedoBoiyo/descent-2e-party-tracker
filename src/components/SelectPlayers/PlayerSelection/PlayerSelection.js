@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 
 // Components
 import RoleSelection from './RoleSelection/RoleSelection';
@@ -18,13 +18,12 @@ import {faExclamationCircle} from '@fortawesome/free-solid-svg-icons';
 const PlayerSelection = ({player, players, setPlayers}) => {
 
     const [playerError, setPlayerError] = useState([]);
-    const [showSkillModal, setShowSkillModal] = useState(false);
-    const [classSkillImage, setClassSkillImage] = useState('');
+    const [classSkillImage, setClassSkillImage] = useState('class-skills/warrior-berserker-bg-rage.png');
+    let showModal = useRef(false);
 
-    const showModalHandler = (image) => {
-        setClassSkillImage(image);
-        setShowSkillModal(true);
-        console.log(image)
+    function showModalHandler(showCard) {
+        setClassSkillImage('class-skills/warrior-berserker-bg-rage.png');
+        showModal = showCard;
     }
 
     return (
@@ -71,18 +70,21 @@ const PlayerSelection = ({player, players, setPlayers}) => {
                                     <h5>Class Skills</h5>
                                     <TabContainer>
                                         <Nav variant="pills" className="flex-column">
-                                            {player.selectedClass.skills.map(skill => (
-                                                <Nav.Item onClick={() => showModalHandler(skill.image)}>
-                                                    <Nav.Link eventKey={skill.points}>{skill.name}</Nav.Link>
+                                            {player.selectedClass.skills.map((skill, index) => (
+                                                <Nav.Item key={index}>
+                                                    <Nav.Link onClick={showModalHandler(true)}>{skill.name}</Nav.Link>
                                                 </Nav.Item>
                                             ))}
                                         </Nav>
                                     </TabContainer>
-                                    {classSkillImage ? <Modal size="sm" show={showSkillModal} onHide={() => setShowSkillModal(false)} centered>
-                                        <img className="skill-card" src={process.env.PUBLIC_URL + classSkillImage} alt='Skill Card' />
-                                    </Modal> : ''}
                                 </div> : ''}
                         </div> : ''}
+                    <Modal size="sm" 
+                        show={showModal} 
+                        onHide={showModalHandler(false)} 
+                        centered>
+                        <img className="skill-card" src={process.env.PUBLIC_URL + classSkillImage} alt='Skill Card' />
+                    </Modal>
                 </div>
             </div>
         </div>

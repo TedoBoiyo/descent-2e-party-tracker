@@ -23,8 +23,8 @@ const RoleSelection = ({player, players, setPlayers, setPlayerError}) => {
     return (
         <select value={player.selectedRole} onChange={selectRoleHandler}> 
             <option value="none">Select Role</option>
-            {roles.map(role => (
-                <option value={role}>{role}</option>
+            {roles.map((role, index) => (
+                <option key={index} value={role}>{role}</option>
             ))};
         </select>
     );

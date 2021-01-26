@@ -35,7 +35,7 @@ const PlayerCount = ({players, setPlayers}) => {
             <h4 className="select-player-count">How many players are playing?</h4>
             <select name="selectPlayers" onChange={selectPlayerCountHandler} value={players.length}>
                 {[...Array(5)].map((el, index) => (
-                    <option value={index}>{index}</option>
+                    <option key={index} value={index}>{index}</option>
                 ))};
             </select>
 

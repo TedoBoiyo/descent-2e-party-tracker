@@ -5,7 +5,7 @@ import React from 'react';
 // Import style sheets
 import '../HeroProfile.css';
 
-const InternalStats = ({}) => {
+const InternalStats = () => {
 
     const heroStatCirPos = [
         {

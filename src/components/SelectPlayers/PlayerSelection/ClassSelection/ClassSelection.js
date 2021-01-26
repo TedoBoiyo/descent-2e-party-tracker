@@ -42,8 +42,8 @@ const ClassSelection = ({player, players, setPlayers, playerError, setPlayerErro
     return (
         <select value={player.selectedClass.name} onChange={selectClassHandler}> 
             <option value="none">Select Class</option>
-            {classList.map($class => (
-                <option value={$class}>{$class}</option>
+            {classList.map(($class, index) => (
+                <option key={index} value={$class}>{$class}</option>
             ))};
         </select>
     );

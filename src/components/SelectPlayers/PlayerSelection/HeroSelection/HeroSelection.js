@@ -39,8 +39,8 @@ const HeroSelection = ({player, players, setPlayers, playerError, setPlayerError
     return (
         <select value={player.selectedHero.name} onChange={selectHeroHandler}> 
             <option value="none">Select Hero</option>
-            {heroList.map(hero => (
-                <option value={hero}>{hero}</option>
+            {heroList.map((hero, index) => (
+                <option key={index} value={hero}>{hero}</option>
             ))};
         </select>
     );
