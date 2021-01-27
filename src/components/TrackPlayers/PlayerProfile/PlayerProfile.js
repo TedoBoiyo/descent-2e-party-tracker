@@ -3,23 +3,23 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
 // Components
-import HeroProfile from './HeroProfile/HeroProfile';
-import HeroAbilities from './HeroAbilities/HeroAbilities';
 import ClassSkills from './ClassSkills/ClassSkills';
 
-// Import style sheets
-import './PlayerProfile.css';
-
-const PlayerProfile = ({players}) => {
+const PlayerProfile = ({players, setClassSkillImage, setShowCardModal}) => {
 
     return (
         <Tabs defaultActiveKey="Player 1">
-            {players.map(player => (
-                <Tab eventKey={"Player " + player.playerId} title={"Player " + player.playerId}>
+            {players.map((player, index) => (
+                <Tab key={index} eventKey={"Player " + player.playerId} title={"Player " + player.playerId}>
                     <div className="row">
-                        <HeroProfile hero={''} />
-                        <HeroAbilities heroAbilities={''} />
-                        <ClassSkills skills={''} />
+                        <div className="col-8">
+                            <img className="hero-card" src={player.selectedHero.image} alt="Player Hero Card" />
+                        </div>
+                        <div className="col-4">
+                            <ClassSkills selectedClass={player.selectedClass} 
+                                        setClassSkillImage={setClassSkillImage} 
+                                        setShowCardModal={setShowCardModal} />
+                        </div>
                     </div>
                 </Tab>
             ))}

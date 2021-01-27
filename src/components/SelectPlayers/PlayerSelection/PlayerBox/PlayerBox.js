@@ -6,16 +6,13 @@ import HeroSelection from './HeroSelection/HeroSelection';
 import ClassSelection from './ClassSelection/ClassSelection';
 import SelectionErrors from './SelectionErrors/SelectionErrors';
 import DisplaySelection from './DisplaySelection/DisplaySelection';
-import ClassCardModal from './ClassCardModal/ClassCardModal';
 
 // Import style sheets
 import './PlayerBox.css';
 
-const PlayerBox = ({player, players, setPlayers}) => {
+const PlayerBox = ({player, players, setPlayers, setClassSkillImage, setShowCardModal}) => {
 
     const [playerError, setPlayerError] = useState([]);
-    const [classSkillImage, setClassSkillImage] = useState('');
-    const [showCardModal, setShowCardModal] = useState(false);
 
     return (
         <div className='player-box'>
@@ -49,11 +46,6 @@ const PlayerBox = ({player, players, setPlayers}) => {
                                     setClassSkillImage={setClassSkillImage}
                                     setShowCardModal={setShowCardModal} />
                 : ''}
-            
-                
-            <ClassCardModal showCardModal={showCardModal}
-                            setShowCardModal={setShowCardModal}
-                            classSkillImage={classSkillImage} />
         </div>
     )
 }

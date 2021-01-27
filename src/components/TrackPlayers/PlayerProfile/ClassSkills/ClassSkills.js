@@ -1,24 +1,31 @@
 import React from 'react';
-import Form from 'react-bootstrap/Form';
 
 // Components
+import TabContainer from 'react-bootstrap/esm/TabContainer';
+import Nav from 'react-bootstrap/esm/Nav';
 
 // Import style sheets
+// import './DisplaySelectedClass.css';
 
-const ClassSkills = ({skills}) => {
+const ClassSkills = ({selectedClass, setClassSkillImage, setShowCardModal}) => {
+
+    const showModalHandler = (e) => {
+        setClassSkillImage(e);
+        setShowCardModal(true);
+    }
 
     return (
-        <div className="col-4">
+        <div className="class-skills">
             <h5>Class Skills</h5>
-            <Form>
-                <Form.Group>
-                    <Form.Check type="checkbox" label="Show selected skills" />
-                    <hr />
-                    <Form.Check type="checkbox" label="Show selected skills" />
-                    <Form.Check type="checkbox" label="Show selected skills" />
-                    <Form.Check type="checkbox" label="Show selected skills" />
-                </Form.Group>
-            </Form>
+            <TabContainer>
+                <Nav variant="pills" className="flex-column">
+                    {selectedClass.skills.map((skill, index) => (
+                        <Nav.Item key={index}>
+                            <Nav.Link onSelect={showModalHandler} eventKey={skill.image}>{skill.name}</Nav.Link>
+                        </Nav.Item>
+                    ))}
+                </Nav>
+            </TabContainer>
         </div>
     );
 }

@@ -1,9 +1,10 @@
 .class-skills {
-    margin: 10px 0 0 10px;
+    margin: 10px;
     vertical-align: top;
     overflow-y: scroll;
     border: 1px solid goldenrod;
     border-radius: 10px;
+    height: 100%;
 }
 
 .class-skills h5 {
