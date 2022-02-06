@@ -12,7 +12,7 @@ const ClassCardModal = ({showCardModal, setShowCardModal, classSkillImage}) => {
             show={showCardModal} 
             onHide={() => setShowCardModal(false)} 
             centered>
-            <img className="skill-card" src={'./' + classSkillImage} alt='Skill Card' />
+            <img className="skill-card" src={`${process.env.PUBLIC_URL}/` + + classSkillImage} alt='Skill Card' />
         </Modal>
     )
 }
