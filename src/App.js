@@ -21,16 +21,18 @@ function App() {
 
       <div className="row justify-content-center">
         <div className="col-md-6">
-          {gameState==='SelectParty' 
-            ? <SelectPlayers players={players} 
-                              setPlayers={setPlayers}
+          {
+            gameState==='SelectParty' 
+              ? <SelectPlayers players={players} 
+                                setPlayers={setPlayers}
+                                setGameState={setGameState}
+                                setClassSkillImage={setClassSkillImage}
+                                setShowCardModal={setShowCardModal} /> 
+              : <TrackPlayers players={players}
                               setGameState={setGameState}
                               setClassSkillImage={setClassSkillImage}
-                              setShowCardModal={setShowCardModal} /> 
-            : <TrackPlayers players={players}
-                            setGameState={setGameState}
-                            setClassSkillImage={setClassSkillImage}
-                            setShowCardModal={setShowCardModal} />}
+                              setShowCardModal={setShowCardModal} />
+          }
         </div>
       </div>
       <ClassCardModal showCardModal={showCardModal}
